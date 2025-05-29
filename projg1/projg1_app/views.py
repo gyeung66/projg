@@ -5,5 +5,5 @@ def hello(request):
     """
     A simple view that returns a greeting.
     """
-    return render(request, 'hello.html', {'greeting': 'Hello, World!'})
+    return render(request, 'hello.html', {'greeting': 'Hello, World! Again!!'})
 
