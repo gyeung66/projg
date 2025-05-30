@@ -1,0 +1,14 @@
+{% extends 'basic.html' %}
+
+{% block content %}
+
+<h1>Do Reverse Complement</h1>
+<form action="../revcomp" method="POST">
+    {% csrf_token %}
+
+    Enter Sequencer: <input type="text" name="sequence"><br><br>
+    <input type="submit">
+</form>
+
+
+{% endblock %}

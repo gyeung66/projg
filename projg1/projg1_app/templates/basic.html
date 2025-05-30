@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello</title>
+    <title>RevComp</title>
 </head>
-<body>
-    {{ greeting }}
-    <ul>
-        <li><a href="{% url 'start' %}">Reverse Complement</a></li>
-    </ul>
+
+<body bgcolor="lightblue">
+    {% block content %}
+
+    {% endblock %}
 </body>
+
 </html>
