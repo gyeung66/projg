@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/handsontable@latest/dist/handsontable.full.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/handsontable@latest/dist/handsontable.full.min.js"></script>
+</head>
+
+<body>
+        <h1>Welcome to the Home Page</h1>
+        <div id="hot"></div>
+
+        <form id="hotForm" action="/rec_data" method="POST">
+            {% csrf_token %}
+            
+            <input type="hidden" name="hot_data" id="hot_data">
+            <button type="button" onclick="getUpdatedData()">Send Updated Data</button>
+        </form>
+
+        <script>
+            var hot = new Handsontable(document.getElementById('hot'), {
+                
+                startRows: 5,
+                startCols: 3,
+                minSpareRows: 1,
+                colHeaders: ['Item', 'Vendor', 'Price'],
+                rowHeaders: true,               
+                licenseKey: 'non-commercial-and-evaluation'
+            });
+            console.log('Handsontable initialized');
+            
+
+            function getUpdatedData() {
+                var updateData = hot.getData();
+                console.log('doing something with the data');
+                console.log(updateData);
+                document.getElementById('hot_data').value = JSON.stringify(updateData);
+                document.getElementById('hotForm').submit();
+            }
+        </script>
+</body>
+</html>
